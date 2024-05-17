@@ -12,7 +12,8 @@ let foodY;
 
 function setup() {
   noLoop();
-  createCanvas(400, 400);
+  let canvas = createCanvas(400, 400);
+  canvas.parent('p5-container'); // Attach the canvas to the container div
   frameRate(10);
   song = loadSound("snake.mp4");
   bell = loadSound("Bell.mp4");
@@ -32,7 +33,6 @@ function setup() {
   button.style("font-size", "28px");
   
    //up button
- //let a=String.fromCharCode(11013)
  button = createButton("U");
  button.mouseClicked(upButton);
  button.size(80, 50);
@@ -113,7 +113,7 @@ function caterpillar() {
   for (let i = 0; i < len; i++) {
     fill("green");
     cX[i] = constrain(cX[i], 0, width - diameter);
-    cY[i] = constrain(cY[i], 0, height - diameter);
+    cY[i] = constrain(cX[i], 0, height - diameter);
     circle(cX[i], cY[i], diameter);
   }
 }
@@ -160,8 +160,7 @@ function generateFood() {
 function draw() {
   background("black");
   caterpillar();
-  crossOver()
+  crossOver();
   fill("red");
   circle(foodX, foodY, diameter);
-
 }
