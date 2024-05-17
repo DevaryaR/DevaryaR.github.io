@@ -3,26 +3,32 @@
 <head>
     <title>Zoo Website</title>
     <style>
+        /* Container styles */
         #defaultBlock {
-            display: table;
+            display: flex;
         }
-        div {
-            float: left;
+
+        /* Div styles */
+        .block {
+            flex: 1; /* Make the divs expand equally to fill the available space */
             height: 470px;
-            width: 300px;
             padding: 10px;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
         }
+
         #block1 {
             background-color: #A9DFBF; /* Light green */
         }
+
         #block2 {
             background-color: #F9E79F; /* Light yellow */
-            width: 250px;
         }
+
         #block3 {
             background-color: #F5B7B1; /* Light pink */
-            width: 250px;
         }
+
+        /* Center the text inside h2 elements */
         h2 {
             text-align: center;
         }
@@ -31,26 +37,18 @@
 <body>
     <main id="defaultBlock">
         <h2>Zoo Website</h2>
-        <div id="block1">
+        <div id="block1" class="block">
             <h2>Animals</h2>
             Random Text about Animals
-            <!-- Weather Widget -->
-            <iframe src="https://weatherwidget.io/w/" frameborder="0" scrolling="no" width="100%" height="150px"></iframe>
         </div>
-        <div id="block2">
+        <div id="block2" class="block">
             <h2>Visit Us</h2>
             Information about visiting the zoo
         </div>
-        <div id="block3">
+        <div id="block3" class="block">
             <h2>Support Us</h2>
             Information on how to support the zoo
-            <!-- Animal Sound Player -->
-            <audio controls>
-                <source src="animal_sound.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
         </div>
     </main>
-    <img src="zoo.jpg" alt="Zoo Image" width="100%">
 </body>
 </html>
