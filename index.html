@@ -28,6 +28,7 @@
 
         #block1 {
             background-color: #A9DFBF; /* Light green */
+            min-height: 600px; /* Ensure block1 is tall enough to fit all content */
         }
 
         #block2 {
@@ -55,8 +56,28 @@
     <main id="defaultBlock">
         <h2>Zoo Website</h2>
         <div id="block1" class="block">
-            <h2>Snake Game</h2>
+            <h2>Try these:</h2>
             <div id="p5-container"></div> <!-- p5.js Sketch Container -->
+            <div id="audio-players">
+                <!-- Snake Sound Player -->
+                <h3>Snake Sound</h3>
+                <audio controls>
+                    <source src="snake_sound.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <!-- Monkey Sound Player -->
+                <h3>Monkey Sound</h3>
+                <audio controls>
+                    <source src="monkey_sound.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <!-- Dog Sound Player -->
+                <h3>Dog Sound</h3>
+                <audio controls>
+                    <source src="dog_sound.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
         </div>
         <div id="block2" class="block">
             <h2>Visit Us</h2>
@@ -65,24 +86,6 @@
         <div id="block3" class="block">
             <h2>Support Us</h2>
             Information on how to support the zoo
-            <!-- Snake Sound Player -->
-            <h3>Snake Sound</h3>
-            <audio controls>
-                <source src="snake_sound.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-            <!-- Monkey Sound Player -->
-            <h3>Monkey Sound</h3>
-            <audio controls>
-                <source src="monkey_sound.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-            <!-- Dog Sound Player -->
-            <h3>Dog Sound</h3>
-            <audio controls>
-                <source src="dog_sound.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
         </div>
     </main>
     <img src="zoo.jpg" alt="Zoo Image" width="100%">
