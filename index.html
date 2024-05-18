@@ -3,27 +3,17 @@
 <head>
     <title>Zoo Website</title>
     <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center; /* Center align the content */
-        }
-
         /* Container styles */
         #defaultBlock {
             display: flex;
-            flex-wrap: wrap; /* Allow wrapping */
-            justify-content: center; /* Center the flex items */
-            text-align: left; /* Ensure text inside flex items is left aligned */
         }
 
         /* Div styles */
         .block {
-            flex: 1 0 300px; /* Make the divs flexible with a base width */
-            height: auto; /* Adjust height to content */
+            flex: 1; /* Make the divs expand equally to fill the available space */
+            height: 470px;
             padding: 10px;
             box-sizing: border-box; /* Include padding and border in the element's total width and height */
-            margin: 10px;
         }
 
         #block1 {
@@ -42,17 +32,6 @@
         h2 {
             text-align: center;
         }
-
-        /* Start button style */
-        #start-button {
-            display: block;
-            margin: 20px auto; /* Center the button */
-        }
-
-        /* p5.js Sketch Container */
-        #p5-container {
-            margin: 0 auto; /* Center the canvas */
-        }
     </style>
     <!-- Include p5.js library from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
@@ -63,7 +42,6 @@
         <div id="block1" class="block">
             <h2>Snake Game</h2>
             <div id="p5-container"></div> <!-- p5.js Sketch Container -->
-            <button id="start-button">Start!</button> <!-- Start Button -->
         </div>
         <div id="block2" class="block">
             <h2>Visit Us</h2>
