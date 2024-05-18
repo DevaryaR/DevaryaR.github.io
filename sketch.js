@@ -13,7 +13,6 @@ let foodY;
 function setup() {
   noLoop();
   let canvas = createCanvas(400, 400);
-  canvas.parent('p5-container'); // Attach the canvas to the container div
   frameRate(10);
 
   for (let i = 0; i < len; i++) {
