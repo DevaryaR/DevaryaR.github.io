@@ -13,7 +13,7 @@ let foodY;
 function setup() {
   noLoop();
   let canvas = createCanvas(400, 400);
- 
+  canvas.parent('p5-container'); // Attach the canvas to the container div
   frameRate(10);
 
   for (let i = 0; i < len; i++) {
@@ -23,10 +23,10 @@ function setup() {
 
   generateFood();
 
-  button = createButton("start!");
+  button = createButton("Start!");
+  button.id('start-button'); // Set the button ID
   button.mouseClicked(strt);
   button.size(100, 50);
-  button.position(10, 420);
   button.style("font-family", "Comic Sans MS");
   button.style("font-size", "28px");
 }
