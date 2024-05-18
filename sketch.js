@@ -13,6 +13,7 @@ let foodY;
 function setup() {
   noLoop(); // Initialize the canvas and pause the loop
   let canvas = createCanvas(400, 400);
+  canvas.parent('p5-container'); 
   frameRate(10);
 
   // Initialize the snake's position
