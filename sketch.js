@@ -1,36 +1,101 @@
+
+let xDirectionArray = [1, 0, -1, 0];
+let yDirectionArray = [0, 1, 0, -1];
+let directionIndex = 0;
+
+let cX = [];
+let cY = [];
+let len = 1;
+let diameter = 10;
+
+
+let foodX;
+let foodY;
+
 function setup() {
- createCanvas(600, 600);
- background("black");
- stroke("white");
+  noLoop()
+  createCanvas(400, 400);
+  frameRate(10); 
+
+  for (let i = 0; i < len; i++) {
+    cX.push(30 - i * 10);
+    cY.push(20);
+  }
+
+  generateFood();
+  
+  button = createButton("start!");
+ button.mouseClicked(strt);
+ button.size(100, 50);
+ button.position(10, 420);
+ button.style("font-family", "Comic Sans MS");
+ button.style("font-size", "28px");
 }
-let x;
-let y;
-let lastX = 0;
-let lastY = 0;
-let num;
+function strt() {
+ loop();
+}
+
+function keyPressed() {
+  if (keyCode === RIGHT_ARROW && directionIndex !== 2) {
+    directionIndex = 0;
+  } else if (keyCode === DOWN_ARROW && directionIndex !== 3) {
+    directionIndex = 1;
+  } else if (keyCode === LEFT_ARROW && directionIndex !== 0) {
+    directionIndex = 2;
+  } else if (keyCode === UP_ARROW && directionIndex !== 1) {
+    directionIndex = 3;
+  }
+}
+
+function caterpillar() {
+ 
+  for (let i = len - 1; i > 0; i--) {
+    cX[i] = cX[i - 1];
+    cY[i] = cY[i - 1];
+  }
+  cX[0] += xDirectionArray[directionIndex] * diameter;
+  cY[0] += yDirectionArray[directionIndex] * diameter;
+
+
+  if (dist(cX[0], cY[0], foodX, foodY) < diameter) {
+    eatFood();
+  }
+
+  for (let i = 0; i < len; i++) {
+    fill("green");
+    cX[i] = constrain(cX[i], 0, width - diameter);
+    cY[i] = constrain(cY[i], 0, height - diameter);
+    circle(cX[i], cY[i], diameter);
+  }
+}
+
+function eatFood() {
+  len++;
+  cX.push(cX[len - 2]); 
+  cY.push(cY[len - 2]);
+  generateFood(); 
+}
+
+function generateFood() {
+  
+  let validLocation = false;
+  while (!validLocation) {
+    foodX = Math.floor(Math.random() * (width - diameter) / diameter) * diameter;
+    foodY = Math.floor(Math.random() * (height - diameter) / diameter) * diameter;
+    validLocation = true;
+    for (let i = 0; i < len; i++) {
+      if (dist(foodX, foodY, cX[i], cY[i]) < diameter) {
+        validLocation = false;
+        break;
+      }
+    }
+  }
+}
+
 function draw() {
- strokeWeight(0.1);
- for (i = 0; i < 100; i++) {
- //let mappedX = map(lastX, 0, 4.8738, 0, 600);
- let mapX = map(lastX, -2.182, 2.6558, 600, 0);
- let mapY = map(lastY, 0, 9.9983, 600, 0);
- point(mapX, mapY);
- num = random(0, 100);
- if (num <1) {// 1%
- x = 0;
- y = 0.16 * lastY;
- } else if (num <= 7) {// 7%
- x = -0.15 * lastX + 0.28 * lastY;
- y = 0.26 * lastX + 0.24 * lastY + 0.44;
- } else if (num <= 14) { // other 7%
- x = 0.2 * lastX - 0.26 * lastY;
- y = 0.23 * lastX + 0.22 * lastY + 1.6;
- } else { //rest of 85%
- x = 0.85 * lastX + 0.04 * lastY;
- y = -0.04 * lastX + 0.85 * lastY + 1.6;
- }
- //x = x + 2.182;
- lastX = x;
- lastY = y;
- }
+  background("black");
+  caterpillar();
+ 
+  fill("red");
+  circle(foodX, foodY, diameter);
 }
