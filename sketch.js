@@ -13,7 +13,6 @@ let foodY;
 function setup() {
   noLoop(); // Initialize the canvas and pause the loop
   let canvas = createCanvas(400, 400);
-  canvas.parent('p5-container'); // Attach the canvas to the container div
   frameRate(10);
 
   // Initialize the snake's position
@@ -26,14 +25,27 @@ function setup() {
 
   // Create a button to start the game
   let button = createButton("Start!");
-  button.mousePressed(strt); // Use mousePressed to attach the function
+  button.mousePressed(resetGame); // Use mousePressed to attach the function
   button.size(100, 50);
   button.position(10, 420);
   button.style("font-family", "Comic Sans MS");
   button.style("font-size", "28px");
 }
 
-function strt() {
+function resetGame() {
+  // Reset the snake's position, length, and direction
+  cX = [];
+  cY = [];
+  len = 1;
+  directionIndex = 0;
+
+  for (let i = 0; i < len; i++) {
+    cX.push(30 - i * 10);
+    cY.push(20);
+  }
+
+  generateFood(); // Generate a new food position
+
   loop(); // Start the loop
 }
 
