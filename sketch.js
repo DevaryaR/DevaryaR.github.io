@@ -1,4 +1,4 @@
-flet xDirectionArray = [1, 0, -1, 0];
+let xDirectionArray = [1, 0, -1, 0];
 let yDirectionArray = [0, 1, 0, -1];
 let directionIndex = 0;
 
