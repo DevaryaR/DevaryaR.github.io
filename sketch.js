@@ -1,4 +1,4 @@
-let xDirectionArray = [1, 0, -1, 0];
+flet xDirectionArray = [1, 0, -1, 0];
 let yDirectionArray = [0, 1, 0, -1];
 let directionIndex = 0;
 
@@ -28,7 +28,7 @@ function setup() {
   let button = createButton("Start!");
   button.mousePressed(resetGame); // Use mousePressed to attach the function
   button.size(100, 50);
-  button.position(10, 700);
+  button.position(10, 670);
   button.style("font-family", "Comic Sans MS");
   button.style("font-size", "28px");
 }
