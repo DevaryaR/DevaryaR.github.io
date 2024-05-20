@@ -28,7 +28,7 @@ function setup() {
   let button = createButton("Start!");
   button.mousePressed(resetGame); // Use mousePressed to attach the function
   button.size(100, 50);
-  button.position(10, 500);
+  button.position(10, 580);
   button.style("font-family", "Comic Sans MS");
   button.style("font-size", "28px");
 }
